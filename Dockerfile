@@ -1,5 +1,5 @@
 # Python과 Node.js를 모두 사용하는 이미지
-FROM nikolaik/python-nodejs:python3.11.9-nodejs16
+FROM nikolaik/python-nodejs:python3.11-nodejs16
 
 # 작업 디렉토리 설정
 WORKDIR /app
