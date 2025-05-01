@@ -14,7 +14,7 @@ COPY . .
 # 애플리케이션 실행 (실제 실행 명령어로 변경 필요)
 #CMD ["python", "app.py"]
 #CMD gunicorn --bind 0.0.0.0:$PORT app:app
-CMD gunicorn --bind 0.0.0.0:8080 --log-level debug app:app
+#CMD gunicorn --bind 0.0.0.0:8080 --log-level debug app:app
 
 #아래는 다음을 위해 참조할 내용
 #Node.js 애플리케이션인 경우:
