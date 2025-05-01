@@ -1,8 +1,8 @@
 # Python과 Node.js를 모두 사용하는 이미지
 #FROM nikolaik/python-nodejs:python3.11-nodejs16
-FROM python:3.11
+FROM python:3.9-slim
 # 작업 디렉토리 설정
-#WORKDIR /app
+WORKDIR /app
 
 # 의존성 파일 복사 (package.json과 requirements.txt)
 COPY requirements.txt .
@@ -15,7 +15,7 @@ COPY . .
 #CMD ["python", "app.py"]
 #CMD gunicorn --bind 0.0.0.0:$PORT app:app
 #CMD gunicorn --bind 0.0.0.0:8080 --log-level debug app:app
-CMD gunicorn --bind 0.0.0.0:${PORT:-8080} app:app --log-level debug
+CMD gunicorn --bind 0.0.0.0:${PORT:-8080} app:app
 
 #아래는 다음을 위해 참조할 내용
 #Node.js 애플리케이션인 경우:
