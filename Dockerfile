@@ -5,20 +5,15 @@ FROM nikolaik/python-nodejs:python3.11-nodejs16
 WORKDIR /app
 
 # 의존성 파일 복사 (package.json과 requirements.txt)
-COPY package*.json .
 COPY requirements.txt .
-
-# Node.js 의존성 설치
-RUN npm install
-
-# Python 의존성 설치
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 나머지 소스 코드 복사
 COPY . .
 
 # 애플리케이션 실행 (실제 실행 명령어로 변경 필요)
-CMD ["python", "app.py"]
+#CMD ["python", "app.py"]
+CMD gunicorn --bind 0.0.0.0:$PORT app:app
 
 #아래는 다음을 위해 참조할 내용
 #Node.js 애플리케이션인 경우:
